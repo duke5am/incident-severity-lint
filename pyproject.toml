@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "incident-severity-lint"
+version = "0.1.0"
+description = "Classify incident severity by user impact, and lint the incident record so the postmortem is actually useful."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENCE.txt"]
+authors = [{ name = "duke5am" }]
+keywords = [
+  "incident", "severity", "sev1", "sev2", "incident-response", "postmortem",
+  "blameless-postmortem", "oncall", "sre", "mttd", "lint", "cli",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Environment :: Console",
+  "Intended Audience :: System Administrators",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: System :: Systems Administration",
+]
+# No runtime dependencies, on purpose: severity_tool.py imports argparse, json,
+# os and sys only, all standard library. This is a selling point - it installs
+# and runs offline, in a minimal container, with no supply chain. Nothing here
+# belongs in an extra either, because no code path needs a third-party package.
+dependencies = []
+
+[project.scripts]
+incident-severity-lint = "incident_severity_lint.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/duke5am/incident-severity-lint"
+Issues = "https://github.com/duke5am/incident-severity-lint/issues"
+
+[tool.setuptools]
+packages = ["incident_severity_lint"]
+include-package-data = true

@@ -1,0 +1,11 @@
+# incident-severity-lint has NO runtime data files: the CLI imports argparse,
+# json, os and sys only, and the single open() call reads the record path the
+# user passes on the command line. So there is nothing to ship as package data
+# and no [tool.setuptools.package-data] entry. What follows is sdist content -
+# the docs and the example that the README refers to - so that a source tarball
+# is self-contained.
+include README.md
+include LICENCE.txt
+include SEVERITY-MATRIX.md
+include POSTMORTEM-TEMPLATE.md
+recursive-include examples *.json

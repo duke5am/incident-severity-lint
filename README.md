@@ -1,12 +1,33 @@
 # incident-severity-lint
+
+[![PyPI](https://img.shields.io/pypi/v/incident-severity-lint)](https://pypi.org/project/incident-severity-lint/)
+
 Classify an incident's severity by **user impact**, and lint the record so the
 postmortem is actually useful.
 
 No dependencies. Standard library only.
 
 ```bash
+pip install incident-severity-lint          # from PyPI, Python 3.9+
+incident-severity-lint classify --core-flow down --users-affected all
+incident-severity-lint lint incident.json
+
+# or straight from a clone, with no install at all - the same CLI:
 python3 severity_tool.py classify --core-flow down --users-affected all
 python3 severity_tool.py lint incident.json
+
+# and without installing, straight from the package:
+python3 -m incident_severity_lint lint incident.json
+```
+
+Exit codes: `0` no findings (MTTD notes only) · `1` findings · `2` the record
+could not be read, is not valid JSON, or is not a JSON object.
+
+The linter API is importable too, if you want the rules inside your own tooling:
+
+```python
+from incident_severity_lint import classify, lint
+classify({"core_flow": "down", "users_affected": "all"})   # ('SEV1', [...])
 ```
 
 ## Severity by impact, not by feel
