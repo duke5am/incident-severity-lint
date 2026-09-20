@@ -11,13 +11,21 @@ No dependencies. Standard library only.
 pip install incident-severity-lint          # from PyPI, Python 3.9+
 incident-severity-lint classify --core-flow down --users-affected all
 incident-severity-lint lint incident.json
+```
 
-# or straight from a clone, with no install at all - the same CLI:
+Or straight from a clone, with no install at all — the same CLI:
+
+```bash
+git clone https://github.com/duke5am/incident-severity-lint
+cd incident-severity-lint
 python3 severity_tool.py classify --core-flow down --users-affected all
-python3 severity_tool.py lint incident.json
+python3 severity_tool.py lint examples/example-incident.json
+```
 
-# and without installing, straight from the package:
-python3 -m incident_severity_lint lint incident.json
+And from the package without installing it, straight from a checkout:
+
+```bash
+python3 -m incident_severity_lint lint examples/example-incident.json
 ```
 
 Exit codes: `0` no findings (MTTD notes only) · `1` findings · `2` the record
