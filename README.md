@@ -118,4 +118,4 @@ If you arrived here searching for one of these, this is the tool: **incident sev
 
 <!-- RELATED:END -->
 
-→ More developer tooling like this: **[duke5am.gumroad.com](https://duke5am.gumroad.com)** <!-- GUMROAD-LINK -->
+→ **[Incident Response Playbook](https://duke5am.gumroad.com/l/12-incident-response-playbook)** — $24 on Gumroad <!-- GUMROAD-LINK -->
